@@ -1,5 +1,6 @@
 // En este ejercicio deberéis realizar algunos cambios sobre las dos listas incluidas en "index.html".
 // En la primera lista tendréis que hacer lo siguiente:
+
 //    * Añadid la clase "element-n" a cada "span" de la lista, siendo "n" el número del lugar que ocupa en la lista (por ejemplo el segundo "span" de la lista tendría la clase "element-2"). Para ello, haced uso de los selectores de nodo (parentNode, nextSibling, firstChild...) partiendo del "span" con la clase "selected" siempre.
 //    * Tras añadir las clases, haced uso de "querySelectorAll" para obtener solo los elementos "li" con valor par (teniendo en cuenta que el primer elmento es el 1) y, a continuación, eliminadlos.
 
@@ -8,8 +9,35 @@
 //    * Después de generar esta segunda lista, añadid el atributo disabled al último botón.
 // Suerte!
 
+//var spanSelect=document.querySelector(".selected");
+//var elementoPadre = spanSelect.parentElement;
+
+var nodeList = [];
+
+function addClass() {
+  var selected = document.querySelector(".selected");
+
+  var padre = selected.parentNode.parentNode;
+
+  var hijos = padre.childNodes;
+  
+  let contador=0;
+  for (let i = 0; i < hijos.length; i++) {
+    
+    if(hijos[i] instanceof HTMLLIElement){
+      
+      console.log(hijos[i].firstChild)
+    }
+    
+    
+  }
+}
+
 window.addEventListener("load", onLoad);
 
 function onLoad() {
   console.log("hi");
+
+
+  addClass();
 }
