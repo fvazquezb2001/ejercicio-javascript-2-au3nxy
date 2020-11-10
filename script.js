@@ -15,25 +15,64 @@
 var nodeList = [];
 
 function addClass() {
-  var selected = document.querySelector(".selected");
+  let selected = document.querySelector(".selected");
 
-  var padre = selected.parentNode.parentNode;
+  let padre = selected.parentNode.parentNode;
 
-  var hijos = padre.childNodes;
-  
-  let contador=1;
+  let hijos = padre.childNodes;
+
+  let contador = 1;
   for (let i = 0; i < hijos.length; i++) {
-    
-    if(hijos[i] instanceof HTMLLIElement){
-     let il = hijos[i].children;
-     console.log(il[0]); 
-     il[0].classList.add("element-"+contador);
-      console.log(hijos[i].firstChild)
-    contador++
+    if (hijos[i] instanceof HTMLLIElement) {
+      let il = hijos[i].children;
+      il[0].classList.add("element-" + contador);
+      contador++;
     }
-    
-    
   }
+}
+
+function editLista1() {
+  let selected = document.querySelector(".selected");
+
+  let padre = selected.parentNode.parentNode;
+
+  let hijos = padre.childNodes;
+
+  hijos[3].remove();
+  hijos[6].remove();
+}
+
+function list2Create() {
+  let lista = document.getElementById("list2");
+
+  let btn1 = document.createElement("BUTTON");
+  btn1.classList.add("element-1");
+  btn1.innerHTML = "text example 1";
+
+  let btn2 = document.createElement("BUTTON");
+  btn2.classList.add("element-3");
+  btn2.innerHTML = "text example 3";
+
+  let btn3 = document.createElement("BUTTON");
+  btn3.classList.add("element-5");
+  btn3.innerHTML = "text example 5";
+  btn3.setAttribute("id", "btn3");
+
+  let li1 = document.createElement("LI");
+  let li2 = document.createElement("LI");
+  let li3 = document.createElement("LI");
+
+  li1.appendChild(btn1);
+  li2.appendChild(btn2);
+  li3.appendChild(btn3);
+
+  lista.appendChild(li1);
+  lista.appendChild(li2);
+  lista.appendChild(li3);
+}
+
+function disableItem(id) {
+  let disabledItem = (document.getElementById(id).disabled = true);
 }
 
 window.addEventListener("load", onLoad);
@@ -41,6 +80,8 @@ window.addEventListener("load", onLoad);
 function onLoad() {
   console.log("hi");
 
-
   addClass();
+  editLista1();
+  list2Create();
+  disableItem("btn3");
 }
