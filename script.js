@@ -21,12 +21,15 @@ function addClass() {
 
   var hijos = padre.childNodes;
   
-  let contador=0;
+  let contador=1;
   for (let i = 0; i < hijos.length; i++) {
     
     if(hijos[i] instanceof HTMLLIElement){
-      
+     let il = hijos[i].children;
+     console.log(il[0]); 
+     il[0].classList.add("element-"+contador);
       console.log(hijos[i].firstChild)
+    contador++
     }
     
     
